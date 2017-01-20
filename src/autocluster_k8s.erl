@@ -25,6 +25,7 @@
 %% @end
 %%
 nodelist() ->
+  {ok, _} = application:ensure_all_started(ssl),
     case make_request() of
 	{ok, Response} ->
 	    Addresses = extract_node_list(Response),
